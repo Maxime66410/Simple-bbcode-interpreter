@@ -65,32 +65,6 @@ function BBCode($chaine)
 		<style>
 			body{ font: 14px sans-serif; }
 			.wrapper{ width: 350px; padding: 20px; }
-			
-			table {
-			border: medium solid #313131;
-			width: 60%;
-			}
-		
-			td, th {
-			border: thin solid #4D4D4D;
-			width: 50%;
-			}
-			
-			img.recentSubmission {
-			margin-top: 5px;
-			margin-left: 5px;
-			margin-right: 5px;
-			margin-bottom: 5px;
-			}
-
-			.rounded {
-				border-radius: .25rem!important;
-			}
-
-			.shadow-1-strong {
-				-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.25),0 3px 10px 0 rgba(0,0,0,.2)!important;
-				box-shadow: 0 2px 5px 0 rgba(0,0,0,.25),0 3px 10px 0 rgba(0,0,0,.2)!important;
-			}
 		</style>
 		
 	</head>
