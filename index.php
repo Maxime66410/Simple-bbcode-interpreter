@@ -37,7 +37,19 @@ function BBCode($chaine)
 		$chaine = str_replace("[/sub]", "</sub>", $chaine);
 		
 		$chaine = str_replace("[code]", "<pre><code>", $chaine);
-		$chaine = str_replace("[/code]", "</code></pre>", $chaine);  
+		$chaine = str_replace("[/code]", "</code></pre>", $chaine);
+	
+		$chaine = str_replace("[table]", "<table>", $chaine);
+		$chaine = str_replace("[/table]", "</table>", $chaine);  
+		
+		$chaine = str_replace("[tr]", "<tr>", $chaine);
+		$chaine = str_replace("[/tr]", "</tr>", $chaine);  
+		
+		$chaine = str_replace("[td]", "<td>", $chaine);
+		$chaine = str_replace("[/td]", "</td>", $chaine);  
+		
+		$chaine = str_replace("[th]", "<th>", $chaine);
+		$chaine = str_replace("[/th]", "</th>", $chaine); 
 		
 		$chaine = str_replace("\n", "<br/>", $chaine);
 		
