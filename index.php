@@ -37,11 +37,24 @@ function BBCode($chaine)
 		$chaine = str_replace("[/sub]", "</sub>", $chaine);
 		
 		$chaine = str_replace("[code]", "<pre><code>", $chaine);
-		$chaine = str_replace("[/code]", "</code></pre>", $chaine);         
+		$chaine = str_replace("[/code]", "</code></pre>", $chaine);  
+		
+		$chaine = str_replace("\n", "<br/>", $chaine);
+		
+		$chaine = str_replace("[br]", "<br/>", $chaine);
+		
+		$chaine = str_replace("[quote]", "<pre>", $chaine);
+		$chaine = str_replace("[/quote]", "</pre>", $chaine); 
 
 		$chaine = str_replace("[video]", "<iframe width='250' src='https://www.youtube.com/embed/", $chaine);
 		$chaine = str_replace("[/video]", "'></iframe>", $chaine);		
-			
+		
+		$chaine = preg_replace("/\[color=(.+?)\](.+?)\[\/color\]/", "<span style=color:$1;>$2</span>", $chaine);
+		
+		$chaine = preg_replace("/\[font=(.+?)\](.+?)\[\/font\]/", "<font face='$1'>$2</font>", $chaine);
+		
+		$chaine = preg_replace("/\[size=(.+?)\](.+?)\[\/size\]/", "<font size='$1'>$2</font>", $chaine);
+		
 		$chaine = preg_replace("#\[\*\]?([^\[]*) ?#", "<li>\\1</li>", $chaine);
 		$chaine = str_replace(array('[list]','[/list]'), array('<ul>','</ul>'), $chaine);
 		
@@ -50,9 +63,8 @@ function BBCode($chaine)
 
 		$chaine = preg_replace("#\[email\] ?([^\[]*) ?\[/email\]#", "<a href=\"mailto:\\1\">\\1</a>", $chaine);
 		$chaine = preg_replace("#\[email ?=([^\[]*) ?] ?([^]]*) ?\[/email\]#", "<a href=\"mailto:\\1\">\\2</a>", $chaine);
-	   
-		$chaine = preg_replace("#\[img\] ?([^\[]*) ?\[/img\]#", "<img src=\"\\1\" alt=\"\" />", $chaine);
-		$chaine = preg_replace("#\[img ?= ?([^\[]*) ?\]#", "<img src=\"\\1\" alt=\"\" />", $chaine);
+		
+		$chaine = preg_replace("/\[img size=(.+?)\](.+?)\[\/img\]/", "<img width='$1' src='$2' />", $chaine);
 	   
 		return $chaine;
 	}
