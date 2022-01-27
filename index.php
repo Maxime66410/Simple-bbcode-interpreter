@@ -15,14 +15,27 @@ function BBCode($chaine)
 		$chaine = str_replace("[i]", "<em>", $chaine);
 		$chaine = str_replace("[/i]", "</em>", $chaine);
 		
+		
+		// BBCode Security Fix
 		$chaine = str_replace("<script>", "<p>", $chaine);
 		$chaine = str_replace("</script>", "</p>", $chaine);
-		
 		$chaine = str_replace("<php>", "<p>", $chaine);
 		$chaine = str_replace("</php>", "</p>", $chaine);
-		
 		$chaine = str_replace("onload=", "<p></p>", $chaine);
 		$chaine = str_replace("onpageshow=", "<p></p>", $chaine);
+		
+		
+		// SQL Inject Security Fix
+		$chaine = str_replace("/bin/sleep", "<p></p>", $chaine);
+		$chaine = str_replace("|/bin/sleep", "<p></p>", $chaine);
+		$chaine = str_replace("/bin/sleep 31;", "<p></p>", $chaine);
+		$chaine = str_replace("/bin/sleep 31 ;", "<p></p>", $chaine);
+		$chaine = str_replace("|/bin/sleep 31;", "<p></p>", $chaine);
+		$chaine = str_replace("|/bin/sleep 31 ;", "<p></p>", $chaine);
+		$chaine = str_replace("ping.exe", "<p></p>", $chaine);
+		$chaine = str_replace("ping.exe -n 31 127.0.0.1", "<p></p>", $chaine);
+		$chaine = str_replace("ping.exe+-n+31+127.0.0.1", "<p></p>", $chaine);
+	   
 	   
 		$chaine = str_replace("[u]", "<u>", $chaine);
 		$chaine = str_replace("[/u]", "</u>", $chaine);
