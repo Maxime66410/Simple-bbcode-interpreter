@@ -28,6 +28,15 @@ function BBCode($chaine)
 		// SQL Inject Security Fix
 		$chaine = str_replace("/bin/sleep", "<p></p>", $chaine);
 		$chaine = str_replace("|/bin/sleep", "<p></p>", $chaine);
+		$chaine = str_replace("SLEEP()", "<p></p>", $chaine);
+		$chaine = str_replace("SLEEP(30)", "<p></p>", $chaine);
+		$chaine = str_replace("SELECT SLEEP()", "<p></p>", $chaine);
+		$chaine = str_replace("SELECT SLEEP(30)", "<p></p>", $chaine);
+		$chaine = str_replace("(SELECT SLEEP())", "<p></p>", $chaine);
+		$chaine = str_replace("(SELECT SLEEP(30))", "<p></p>", $chaine);
+		$chaine = str_replace("OR(SELECT SLEEP())", "<p></p>", $chaine);
+		$chaine = str_replace("OR (SELECT SLEEP())", "<p></p>", $chaine);
+		$chaine = str_replace("OR (SELECT SLEEP(30))", "<p></p>", $chaine);
 		$chaine = str_replace("/bin/sleep 31;", "<p></p>", $chaine);
 		$chaine = str_replace("/bin/sleep 31 ;", "<p></p>", $chaine);
 		$chaine = str_replace("|/bin/sleep 31;", "<p></p>", $chaine);
