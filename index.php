@@ -18,11 +18,15 @@ function BBCode($chaine)
 		
 		// BBCode Security Fix
 		$chaine = str_replace("<script>", "<p>", $chaine);
+		$chaine = str_replace(" ","<script>", "<p>", $chaine);
 		$chaine = str_replace("</script>", "</p>", $chaine);
+		$chaine = str_replace(" ","</script>", "</p>", $chaine);
 		$chaine = str_replace("<php>", "<p>", $chaine);
 		$chaine = str_replace("</php>", "</p>", $chaine);
 		$chaine = str_replace("onload=", "<p></p>", $chaine);
+		$chaine = str_replace(" ", "onload=", "<p></p>", $chaine);
 		$chaine = str_replace("onpageshow=", "<p></p>", $chaine);
+		$chaine = str_replace(" ","onpageshow=", "<p></p>", $chaine);
 		
 		
 		// SQL Inject Security Fix
