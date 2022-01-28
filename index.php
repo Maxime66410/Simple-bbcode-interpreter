@@ -27,6 +27,8 @@ function BBCode($chaine)
 		$chaine = str_replace(" ", "onload=", "<p></p>", $chaine);
 		$chaine = str_replace("onpageshow=", "<p></p>", $chaine);
 		$chaine = str_replace(" ","onpageshow=", "<p></p>", $chaine);
+		$chaine = str_replace("download=", "<p></p>", $chaine);
+		$chaine = str_replace(" ","download=", "<p></p>", $chaine);
 		
 		
 		// SQL Inject Security Fix
